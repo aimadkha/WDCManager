@@ -31,11 +31,21 @@ public class User {
     @Column(name = "state_user")
     private Boolean stateUser;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_role")
     private Role idRole;
 
     public User() {
+    }
+
+    public User(Integer id, String nomUser, String prenomUser, String genreUser, String telephone, String email, String password) {
+        this.id = id;
+        this.nomUser = nomUser;
+        this.prenomUser = prenomUser;
+        this.genreUser = genreUser;
+        this.telephone = telephone;
+        this.email = email;
+        this.password = password;
     }
 
     public User(Integer id, String nomUser, String prenomUser, String genreUser, String telephone, String email, String password, Boolean stateUser, Role idRole) {
@@ -59,6 +69,17 @@ public class User {
         this.password = password;
         this.stateUser = stateUser;
         this.idRole = idRole;
+    }
+
+    public User(Integer id, String nomUser, String prenomUser, String genreUser, String telephone, String email, String password, Boolean stateUser) {
+        this.id = id;
+        this.nomUser = nomUser;
+        this.prenomUser = prenomUser;
+        this.genreUser = genreUser;
+        this.telephone = telephone;
+        this.email = email;
+        this.password = password;
+        this.stateUser = stateUser;
     }
 
     public Role getIdRole() {

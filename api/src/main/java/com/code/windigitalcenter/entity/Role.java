@@ -15,8 +15,8 @@ public class Role {
     @Column(name = "nom_role", length = 11)
     private String nomRole;
 
-    @OneToMany(mappedBy = "idRole")
-    private Set<User> users = new LinkedHashSet<>();
+   // @OneToMany(mappedBy = "idRole")
+    // private Set<User> users = new LinkedHashSet<>();
 
     public Role() {
     }
@@ -28,16 +28,16 @@ public class Role {
     public Role(Integer id, String nomRole, Set<User> users) {
         this.id = id;
         this.nomRole = nomRole;
-        this.users = users;
+        //this.users = users;
     }
 
-    public Set<User> getUsers() {
-        return users;
-    }
+  //  public Set<User> getUsers() {
+    //    return users;
+    //}
 
-    public void setUsers(Set<User> users) {
-        this.users = users;
-    }
+  //  public void setUsers(Set<User> users) {
+    //    this.users = users;
+    //}
 
     public String getNomRole() {
         return nomRole;
