@@ -7,7 +7,7 @@ pipeline{
         stage ('redirect') {
           
           steps{
-            sh 'dir /api' 
+            sh 'cd /api/' 
           }
           
         }
