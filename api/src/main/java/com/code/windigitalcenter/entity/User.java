@@ -35,6 +35,17 @@ public class User {
     @JoinColumn(name = "id_role")
     private Role idRole;
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    @Transient
+    private String token;
+
     public User() {
     }
 

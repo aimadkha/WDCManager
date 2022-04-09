@@ -1,5 +1,6 @@
 package com.code.windigitalcenter.security;
 
+
 import com.code.windigitalcenter.entity.User;
 import com.code.windigitalcenter.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +15,18 @@ public class WinDigitalCenterUserDetailsService implements UserDetailsService {
 
 
 
+
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userRepository.findUserByEmail(email);
-        if (user != null){
-            return new WinDigitalCenterUserDetails(user);
+        if (user == null){
+            throw new UsernameNotFoundException("could not found a user with email: "+ email);
         }
-        throw new UsernameNotFoundException("could not found a user with email: "+ email);
+        else{
+            WinDigitalCenterUserDetails winDigitalCenterUserDetails = new WinDigitalCenterUserDetails(user);
+            return winDigitalCenterUserDetails;
+        }
     }
 }
+
+

@@ -1,40 +1,43 @@
+/*
 package com.code.windigitalcenter.security;
 
-import com.code.windigitalcenter.entity.Role;
 import com.code.windigitalcenter.entity.User;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
+import java.util.Set;
 
-public class WinDigitalCenterUserDetails implements UserDetails {
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class UserPrincipal implements UserDetails {
 
-    private User user;
-
-    public WinDigitalCenterUserDetails(User user){
-        this.user = user;
-    }
+    private Integer id;
+    private String username;
+    transient private String password;
+    transient private User user;
+    private Set<GrantedAuthority> authorities;
 
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-
-        List<Role> roles = new ArrayList<>();
-        roles.add(user.getIdRole());
         return null;
     }
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return null;
     }
 
     @Override
     public String getUsername() {
-        return user.getEmail();
+        return username;
     }
 
     @Override
@@ -54,12 +57,9 @@ public class WinDigitalCenterUserDetails implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return user.getStateUser();
-    }
-
-    public String getFullName(){
-        return this.user.getPrenomUser()+" "+this.user.getNomUser();
+        return true;
     }
 }
 
 
+ */
