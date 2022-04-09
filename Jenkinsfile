@@ -1,9 +1,16 @@
 pipeline{
-  
-    cd /api
+ 
     agent any
 
     stages {
+      
+        stage ('redirect') {
+          
+          steps{
+            sh 'dir /api' 
+          }
+          
+        }
         stage ('compile stage') {
 
             steps{
