@@ -4,17 +4,12 @@ pipeline{
 
     stages {
       
-        stage ('redirect') {
-          
-          steps{
-            sh 'cd api' 
-          }
-          
-        }
+        
         stage ('compile stage') {
 
             steps{
                 withMaven(maven : 'maven_3_8_5') {
+                    sh 'cd api' 
                     sh 'mvn clean compile'
                 }
             }
