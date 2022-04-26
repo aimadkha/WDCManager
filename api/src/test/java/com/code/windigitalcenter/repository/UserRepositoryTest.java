@@ -32,7 +32,7 @@ class UserRepositoryTest {
         Role roleAdmin = entityManager.find(Role.class, 1);
         User user = new User("aimad", "elkha","male", "98798798", "lkql@test.com", "aimadaimad", false, roleAdmin);
         User user1 = new User("some", "some", "male", "987987987", "some@some.com", "somesome", true, roleAdmin);
-        User savedUser = userRepository.save(user);
+        User savedUser = userRepository.save(user1);
         assertThat(savedUser.getId()).isGreaterThan(0);
 
     }

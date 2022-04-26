@@ -35,6 +35,9 @@ public class User {
     @JoinColumn(name = "id_role")
     private Role idRole;
 
+    @Transient
+    private String token;
+
     public User() {
     }
 
